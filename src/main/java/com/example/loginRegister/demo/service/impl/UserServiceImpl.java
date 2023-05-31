@@ -29,10 +29,14 @@ public class UserServiceImpl implements UserService {
                 .email(dto.getEmail())
                 .password(this.passwordEncoder.encode(dto.getPassword()))
                 .build();
-
-        userRepo.save(user);
-
-        return user.getFirstName()+" "+user.getLastName();
+        UserEntity userEntity = userRepo.findByEmail(dto.getEmail());
+        if(userEntity == null){
+            userRepo.save(user);
+            return "User registered successfully";
+        }
+        else{
+            return user.getFirstName()+" "+user.getLastName();
+        }
     }
 
     @Override
