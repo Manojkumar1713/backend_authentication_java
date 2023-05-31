@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginMessage loginEmployee(LoginDTO dto) {
-        String msg = "";
+        String msg = null;
         UserEntity user = userRepo.findByEmail(dto.getEmail());
         if(user != null){
             String pass = dto.getPassword();
