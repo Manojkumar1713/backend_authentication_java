@@ -30,6 +30,7 @@ public class UserLoginController {
         String name = userService.addUser(userDTO);
         return ResponseEntity.ok(" User successfully registered !!");
     }
+    // this comment from Rajashaker test
 
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO dto){
